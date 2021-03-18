@@ -1,0 +1,73 @@
+body {
+  background-color: cadetblue;
+  background-image: url('https://coolwallpapers.me/picsup/3098605-background_blank_book_creative_design_desk_desktop_diary_education_empty_minimal_mock_note_notebook_notepad_paper_pencil_table_white.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100wh;
+  height: 100%vh;
+}
+img {
+  width: 100px;
+  height: 200px;
+}
+.appName {
+  font-size: 60px;
+  font-family: 'lobster', cursive;
+  color: rgb(87, 155, 214);
+}
+h1 {
+  color: lightgoldenrodyellow;
+  font-size: 35px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande' sans-serif;
+}
+h2,
+h3 {
+  color: lightgoldenrodyellow;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande' sans-serif;
+}
+div {
+  padding: 10px;
+  margin: 20px;
+}
+label {
+  color: white;
+  font-size: larger;
+}
+input {
+  background-color: lightcyan;
+}
+th {
+  color: white;
+}
+td {
+  color: blue;
+}
+p {
+  color: white;
+}
+li {
+  list-style: none;
+}
+button {
+  background-color: crimson;
+  color: rgb(190, 190, 214);
+}
+.form-control {
+  width: 50%;
+}
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.mainNav {
+  display: flex;
+  justify-content: space-evenly;
+}
+.mainUserLinks {
+  display: flex;
+  align-items: space-evenly;
+}
+footer {
+  color: white;
+}

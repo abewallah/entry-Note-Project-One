@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <!--font Family-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <!--Bootstrap-->
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-dark">
+        <h1 class="appName">EntryNote</h1>
+        <ul class="d-flex flex-row align-items-end">
+          <li class="p-4"><a href="/">Home</a></li>
+          <li class="p-4"><a href="/users/signUp">Signup</a></li>
+          <li class="p-4"><a href="/users/login">Login</a></li>
+          <li class="p-4">
+            <a href="/users/logout"
+              ><button class="btn btn-warning">Logout</button></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div>
+        <h1>Welcome:</h1>
+        <h2><%= currentUser.fName %>,<%= currentUser.lName%></h2>
+      </div>
+      <div>
+        <a href="/courses/new">
+          <h4>Add Course?</h4>
+        </a>
+      </div>
+
+      <h3>Courses List:</h3>
+      <div class="row flex-wrap">
+        <% currentUser.courses.forEach((course) => { %>
+        <div class="col">
+          <div class="card bg-dark">
+            <div class="card-body text-secondary">
+              <h5 class="card-title">
+                <strong><%= course.courseName %></strong>
+              </h5>
+              <p class="card-text">Click view for mor Info:</p>
+              <a href="/courses/<%= course._id %>"
+                ><button class="card-link btn btn-outline-warning">
+                  View
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

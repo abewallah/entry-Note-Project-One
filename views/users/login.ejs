@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <!--font Family-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <!--Bootstrap-->
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-dark">
+        <h1 class="appName p-3">EntryNote</h1>
+        <ul class="d-flex flex-row">
+          <li class="p-3"><a href="/">Home</a></li>
+          <li class="p-3"><a href="/users/signUp">Signup</a></li>
+          <li class="p-3"><a href="/users/login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Login to your account</h1>
+
+      <form class="form-inline" action="/users/login" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control sm-3"
+          />
+        </div>
+        <div class="form-group">
+          <label for="inputPassword6">Password</label>
+          <input
+            type="password"
+            id="inputPassword6"
+            name="password"
+            class="form-control mx-sm-3"
+            aria-describedby="passwordInline"
+          />
+          <small id="passwordInline" class="text-muted">
+            Your password must be 8-20 characters long.</small>
+          
+        </div>
+
+        </br>
+        <button class="btn-success" type="submit">Login</button>
+      </form>
+    </main>
+  </body>
+  <%- include('../partials/footer') %>
+</html>

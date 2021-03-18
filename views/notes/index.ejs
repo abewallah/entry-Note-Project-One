@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+    <!--bootstrap-->
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <main>
+      <%- include('../partials/header') %>
+
+      <h1>Notes</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Department Name</th>
+            <th>Remove Course</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (noteArray.length === 0) { %> <% } else { %> <% for (let i = 0;
+          i < noteArray.length; i++) { %>
+          <tr>
+            <th scope="row"><%= i %></th>
+            <td>
+              <a href="/notes/<%= noteArray[i]._id %>"
+                ><%= noteArray[i].title %>
+              </a>
+            </td>
+            <td><%= noteArray[i].course.courseName%></td>
+            <td>
+              <form
+                method="POST"
+                action="/courses/<%= noteArray[i]._id %>?_method=DELETE"
+              >
+                <button class="btn btn-outline-danger" type="submit">
+                  Delete
+                </button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+        <% } %> <% } %>
+      </table>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

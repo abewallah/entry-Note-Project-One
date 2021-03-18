@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--font Family-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <!--Bootsrtap-->
+    <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="./js/bootstrap.bundle.js"></script>
+
+    <title>Courses Index</title>
+  </head>
+  <body>
+    <main>
+      <nav class="navbar navbar-dark bg-dark">
+        <h1 class="appName">Entry Note</h1>
+        <ul class="d-flex flex-row">
+          <li class="p-3">
+            <a href="/">Home</a>
+          </li>
+          <li class="p-3">
+            <a href="/courses">Courses Index</a>
+          </li>
+          <li class="p-3">
+            <a href="/courses/new">Add New Courses</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h2>Apps Description</h2>
+        <p>
+          This App allows the user Create/edit/delete Notes from Courses they
+          Create.
+        </p>
+
+        <h3>List Of Courses:</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Course Name</th>
+              <th>Department Name</th>
+              <th>Remove Course</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (course.length === 0) { %> <% } else { %> <% for (let i = 0; i
+            < course.length; i++) { %>
+            <tr>
+              <th scope="row"><%= i %></th>
+              <td>
+                <a href="/courses/<%= course[i]._id %>"
+                  ><%= course[i].courseName %>
+                </a>
+              </td>
+              <td><%= course[i].departmentName %></td>
+              <td>
+                <form
+                  method="POST"
+                  action="/courses/<%= course[i]._id %>?_method=DELETE"
+                >
+                  <button class="btn btn-outline-danger" type="submit">
+                    Delete
+                  </button>
+                </form>
+              </td>
+            </tr>
+          </tbody>
+          <% } %> <% } %>
+        </table>
+      </section>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

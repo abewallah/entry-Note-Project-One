@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Page</title>
+     <!--font Family-->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> 
+    <!--bootstrap-->
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main>
+      <form action="/courses/<%= course._id %>?_method=PUT" method="POST">
+        <div>
+          <label for="courseName">Course Name:</label>
+          <input
+            type="text"
+            id="courseName"
+            name="courseName"
+            value="<%=course.courseName%>"
+          />
+        </div>
+
+        <div>
+          <label for="instructor">Instructor Name: </label>
+          <input
+            type="text"
+            id="instructor"
+            name="instructor"
+            value="<%=course.instructor%>"
+          />
+        </div>
+        <div>
+          <p>Scaling: Red: Hard, Yellow: Medium, Green: Easy:</p>
+          <label for="diffculty">Diffculty Level: </label>
+          <input type="color" id="diffculty" name="diffculty" />
+        </div>
+        <div>
+          <label for="departmentName">Department Name: </label>
+          <input
+            type="text"
+            id="departmentName"
+            name="departmentName"
+            value="<%=course.departmentName%>"
+          />
+        </div>
+
+        <button class="btn btn-success" type="submit">Update</button>
+      </form>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Page For <%= note.title %></title>
+    <!--Bootstrap-->
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <main>
+      <section>
+        <%- include('../partials/header') %>
+
+        <h2>Course Name:</h2>
+        <a href="/courses/<%= note.course._id %>"
+          ><p class="bg-secondary bg-warning">
+            <%= note.course.courseName%>
+          </p></a
+        >
+      </section>
+
+      <section class="d-flex flex-sm-column">
+        <h2>Notes</h2>
+        <div>
+          <h3 class="bg-secondary bg-dark">Note: <%= note.title %></h3>
+        </div>
+        <div>
+          <h3>Content: <%= note.bodys %></h3>
+        </div>
+        <div>
+          <a href="/notes/<%= note._id %>/edit">
+            <button class="btn btn-warning">Edit</button>
+          </a>
+
+          <form
+            action="courses/<%=note.course._id%>/notes/<%= note._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button class="btn btn-danger" type="submit">Delete</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

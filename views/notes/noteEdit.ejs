@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Page</title>
+    <!--bootstrap-->
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script defer src="/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <main>
+    <%- include('../partials/header') %>
+
+      <form action="/notes/<%= note._id %>?_method=PUT" method="POST">
+        <div>
+          <label for="title">Note Name:</label>
+          <input type="text" id="title" name="title" value="<%=note.title%>" />
+        </div>
+        <div>
+          <label for="bodys">Content: </label>
+          <textarea
+            type="text"
+            id="bodys"
+            name="bodys"
+            value="<%= note.bodys %>"
+          ></textarea>
+        </div>
+
+        <button class="btn btn-success" type="submit">Update</button>
+      </form>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>
